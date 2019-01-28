@@ -1,3 +1,57 @@
+ 
+
+formUrl = http://localhost:3001/#/form/5bf494515dd4890698a96bc6/ (or json representation)
+submissionData = http://localhost:3001/#/form/5bf494515dd4890698a96bc6/submission/5bf495b05dd4890698a96bca (or json representation)
+```
+		toPdf: function (formUrl, submissionData, callback) {
+			$.get(formUrl, function (formResponse) {
+
+                var component = formResponse;
+
+                var hasSubmission = submissionData !== null;
+                var submission = hasSubmission ? submissionData : null;
+                var emptyValue = hasSubmission ? 'n/a' : '';
+
+                var willDownload = callback === null || callback === undefined;
+
+                   var options = {
+                        formio: {                       // component specific configuration
+                            ignoreLayout: true,         // should html render respect formio layouts (columns, lables positions, etc)
+                            emptyValue: emptyValue      // default empty value for rendered components
+                        },
+                        component: component,
+                        data: submission,               
+                        config: {                       // pdf export configuration
+                            download: willDownload,     // should the pdf file be downloaded once rendered
+                            filename: 'download.pdf',   // the pdf file name
+                            margin: 10,                 // the pdf file margins
+                            html2canvas: {
+                                scale: 5,               // scale factor for rendering the canvas (overall resolution of the canvas image)
+                                logging: false          // should console logging be enable during rendering
+                            },
+                            jsPDF: {
+                                orientation: 'p',       // PDF orientation - potrait / landscape
+                                unit: 'mm',             // measurement units used
+                                format: 'letter'        // paper size - can also accept custom (i.e. A4 - [210, 297])
+                            }
+                        },
+                        meta: {
+                            generatedOn: moment().format('lll'),
+                            generatedBy: emailAddress
+                        }
+                    }
+
+                    var exporter = new FormioExport(component, submission, options);
+
+                    if (willDownload) {
+                        exporter.toPdf(options.config);
+                    } else if (callback) {
+                        exporter.toPdf(options.config).then(callback);
+                    }
+            });
+		}
+```		
+
 # Formio Export Tools
 
 ![GitHub package version](https://img.shields.io/github/package-json/v/airarrazaval/formio-export.svg) 
