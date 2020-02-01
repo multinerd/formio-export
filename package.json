@@ -48,6 +48,6 @@
   "dependencies": {
     "moment": "^2.20.1",
     "js-html2pdf": "^1.1.4",
-    "lodash": "^4.17.10"
+    "lodash": "^4.17.13"
   }
 }
