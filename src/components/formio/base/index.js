@@ -43,6 +43,9 @@ class BaseComponent {
     return this.legend || this.title || this.label || this.key;
   }
 
+  getHtml () {
+    return this.html;
+  }
   emptyValue () {
     return _.isNil(this._options.emptyValue) ? '' : this._options.emptyValue;
   }
