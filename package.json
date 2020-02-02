@@ -41,13 +41,13 @@
     "jsdom": "^11.10.0",
     "jsdom-global": "^3.0.2",
     "mocha": "^5.1.1",
-    "webpack": "^4.6.0",
-    "webpack-cli": "^2.1.2",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.1.2",
     "yargs": "^11.0.0"
   },
   "dependencies": {
-    "moment": "^2.20.1",
     "js-html2pdf": "^1.1.4",
-    "lodash": "^4.17.10"
+    "lodash": "^4.17.15",
+    "moment": "^2.20.1"
   }
 }

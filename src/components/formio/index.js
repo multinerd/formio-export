@@ -27,6 +27,8 @@ import DataGridComponent from './datagrid';
 import EditGridComponent from './editgrid';
 
 import FormComponent from './form';
+import HtmlComponent from './html';
+import ContentComponent from './content';
 
 import ColumnsComponent from './columns';
 import PanelComponent from './panel';
@@ -62,6 +64,9 @@ const FormioComponent = {
   fieldset: FieldSetComponent,
   unknown: UnknownComponent,
   form: FormComponent,
+  content: ContentComponent,
+  html: HtmlComponent,
+
   create: (component, data, options) => {
     let c = null;
 
