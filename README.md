@@ -1,4 +1,5 @@
- 
+
+I never had any intent on maintaining this project. I simply forked it from [here](https://github.com/airarrazaval/formio-export) and made some changes to get it working for personal use.
 
 > formUrl = http://localhost:3001/#/form/5bf494515dd4890698a96bc6/ (or json representation)  
 
